@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>إدارة تقييمات العملاء | She Trend</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.rtl.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/reviews.css">
+</head><body>
+<main class="review-page"><div class="container admin-wrap">
+  <div class="review-brand"><a href="index.html"><img src="assets/logo/logo2 (1).png" alt="She Trend"></a></div>
+  <section id="loginView" class="admin-login review-panel">
+    <div class="text-center mb-4"><p class="eyebrow">ADMIN</p><h1>إدارة تقييمات العملاء</h1><p class="lead">سجّلي الدخول لمراجعة واعتماد التقييمات قبل نشرها.</p></div>
+    <div id="loginError" class="alert alert-danger d-none"></div>
+    <form id="loginForm"><div class="mb-3"><label class="form-label">البريد الإلكتروني</label><input id="email" type="email" class="form-control" required></div><div class="mb-3"><label class="form-label">كلمة المرور</label><input id="password" type="password" class="form-control" required></div><button class="btn btn-premium w-100" id="loginBtn">دخول</button></form>
+    <div id="demoNotice" class="review-note text-center mt-3">يجب ربط Supabase لتفعيل تسجيل دخول الأدمن.</div>
+  </section>
+  <section id="adminView" class="d-none">
+    <div class="admin-top"><div><p class="eyebrow mb-1">REVIEWS</p><h1>تقييمات العملاء</h1></div><div class="d-flex gap-2"><a href="customer.html" class="btn btn-outline-secondary">صفحة التقييم</a><button id="logoutBtn" class="btn btn-dark">تسجيل خروج</button></div></div>
+    <div id="adminAlert" class="alert d-none"></div>
+    <div class="row g-3" id="adminGrid"></div>
+  </section>
+</div></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script src="js/reviews-config.js"></script><script src="js/reviews.js"></script>
+<script>
+const loginView=document.getElementById('loginView'),adminView=document.getElementById('adminView'),grid=document.getElementById('adminGrid');
+if(!SheTrendReviews.configured) document.getElementById('demoNotice').textContent='Supabase غير مربوط. هذه الصفحة لا تسمح بإدارة التقييمات بدون قاعدة بيانات حقيقية.';
+function esc(v){return String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+function renderAdmin(list){if(!list.length){grid.innerHTML='<div class="col-12"><div class="admin-card text-center py-5">لا توجد تقييمات حتى الآن 🤎</div></div>';return}grid.innerHTML=list.map(r=>{const avatar=r.avatar_data||SheTrendReviews.initialsAvatar(r.name);const statusClass='status-'+r.status;const statusText={pending:'بانتظار المراجعة',approved:'معتمد',rejected:'مرفوض'}[r.status]||r.status;return `<div class="col-lg-6"><div class="admin-card"><div class="admin-review"><img class="review-avatar" src="${esc(avatar)}" alt="${esc(r.name)}"><div class="admin-review-body"><div class="admin-review-head"><div><div class="admin-review-name">${esc(r.name)}</div><div class="admin-review-city">${esc(r.city)}</div></div><span class="status-badge ${statusClass}">${statusText}</span></div><div class="review-stars mt-2">${SheTrendReviews.stars(Number(r.rating)||5)}</div><p class="admin-review-text">"${esc(r.review_text||r.text)}"</p><div class="admin-actions">${r.status!=='approved'?'<button class="btn btn-sm btn-success" data-action="approve" data-id="'+r.id+'">اعتماد ✓</button>':''}${r.status!=='rejected'?'<button class="btn btn-sm btn-outline-secondary" data-action="reject" data-id="'+r.id+'">رفض</button>':''}<button class="btn btn-sm btn-outline-danger" data-action="delete" data-id="${r.id}">حذف</button></div></div></div></div></div>`}).join('')}
+async function refresh(){try{renderAdmin(await SheTrendReviews.allForAdmin())}catch(e){showAlert('danger',e.message||'تعذر تحميل التقييمات.')}}
+function showAlert(type,msg){const a=document.getElementById('adminAlert');a.className='alert alert-'+type;a.textContent=msg;a.classList.remove('d-none');setTimeout(()=>a.classList.add('d-none'),3500)}
+document.getElementById('loginForm').addEventListener('submit',async e=>{e.preventDefault();const btn=document.getElementById('loginBtn');btn.disabled=true;try{if(!SheTrendReviews.configured)throw new Error('Supabase غير مربوط بعد. ضعي بياناته في js/reviews-config.js ثم أعيدي المحاولة.');await SheTrendReviews.adminLogin(document.getElementById('email').value,document.getElementById('password').value);loginView.classList.add('d-none');adminView.classList.remove('d-none');await refresh()}catch(err){const a=document.getElementById('loginError');a.textContent=err.message||'بيانات الدخول غير صحيحة.';a.classList.remove('d-none')}finally{btn.disabled=false}});
+grid.addEventListener('click',async e=>{const b=e.target.closest('[data-action]');if(!b)return;b.disabled=true;try{if(b.dataset.action==='approve')await SheTrendReviews.updateStatus(b.dataset.id,'approved');else if(b.dataset.action==='reject')await SheTrendReviews.updateStatus(b.dataset.id,'rejected');else await SheTrendReviews.remove(b.dataset.id);showAlert('success','تم تحديث التقييم بنجاح.');await refresh()}catch(err){showAlert('danger',err.message||'حدث خطأ.')}finally{b.disabled=false}});
+document.getElementById('logoutBtn').addEventListener('click',async()=>{await SheTrendReviews.adminLogout();adminView.classList.add('d-none');loginView.classList.remove('d-none')});
+(async()=>{if(SheTrendReviews.configured){try{if(await SheTrendReviews.currentAdmin()){loginView.classList.add('d-none');adminView.classList.remove('d-none');await refresh()}}catch{}}})();
+</script>
+</body></html>

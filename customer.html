@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>شاركينا تجربتك | She Trend</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.rtl.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"><link rel="stylesheet" href="css/reviews.css">
+</head>
+<body>
+<main class="review-page"><div class="container review-shell">
+  <div class="review-brand"><a href="index.html"><img src="assets/logo/logo2 (1).png" alt="She Trend"></a></div>
+  <section class="review-panel">
+    <div class="text-center mb-4"><p class="eyebrow">YOUR EXPERIENCE</p><h1>شاركينا تجربتك 🤎</h1><p class="lead mb-0">رأيك يهمنا، وساعدينا نعرف كيف كانت تجربتك مع شي ترند.</p></div>
+    <div id="configAlert" class="alert alert-warning d-none">صفحة التقييم تعمل حاليًا بالوضع التجريبي. لربطها فعليًا مع الموقع، ضعي بيانات Supabase في <code>js/reviews-config.js</code>.</div>
+    <div id="successAlert" class="alert alert-success d-none"><strong>شكرًا لكِ 🤎</strong><br>وصل تقييمك بنجاح، وسيظهر على الموقع بعد مراجعته واعتماده.</div>
+    <div id="errorAlert" class="alert alert-danger d-none"></div>
+    <form id="reviewForm" class="review-form" novalidate>
+      <div class="row g-3">
+        <div class="col-md-6"><label class="form-label" for="name">الاسم *</label><input id="name" class="form-control" maxlength="80" required></div>
+        <div class="col-md-6"><label class="form-label" for="city">المدينة *</label><input id="city" class="form-control" maxlength="80" required></div>
+        <div class="col-12"><label class="form-label d-block">تقييمك *</label><div class="rating-picker" aria-label="اختاري التقييم">
+          <input type="radio" id="star5" name="rating" value="5" checked><label for="star5" title="5 نجوم"><i class="bi bi-star-fill"></i></label>
+          <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 نجوم"><i class="bi bi-star-fill"></i></label>
+          <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 نجوم"><i class="bi bi-star-fill"></i></label>
+          <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="نجمتان"><i class="bi bi-star-fill"></i></label>
+          <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="نجمة واحدة"><i class="bi bi-star-fill"></i></label>
+        </div></div>
+        <div class="col-12"><label class="form-label" for="reviewText">اكتبي تجربتك *</label><textarea id="reviewText" class="form-control" rows="5" maxlength="1000" required placeholder="وش أكثر شيء عجبك في تجربتك؟"></textarea><div class="review-note mt-2">من 5 إلى 1000 حرف.</div></div>
+        <div class="col-12"><label class="form-label" for="avatar">صورتك (اختياري)</label><input id="avatar" type="file" class="form-control" accept="image/*"><div class="review-note mt-2">يفضل صورة مربعة. سيتم تصغيرها تلقائيًا قبل الإرسال.</div><img id="avatarPreview" class="avatar-preview mt-3" alt="معاينة الصورة"></div>
+        <div class="col-12"><button class="btn btn-premium w-100" id="submitBtn" type="submit"><i class="bi bi-send"></i> إرسال التقييم</button></div>
+      </div>
+    </form>
+    <div class="text-center mt-4"><a href="index.html" class="text-decoration-none">العودة للمتجر</a></div>
+  </section>
+</div></main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script><script src="js/reviews-config.js"></script><script src="js/reviews.js"></script>
+<script>
+const form=document.getElementById('reviewForm'), fileInput=document.getElementById('avatar'), preview=document.getElementById('avatarPreview');
+if(!SheTrendReviews.configured) document.getElementById('configAlert').classList.remove('d-none');
+fileInput.addEventListener('change',()=>{const f=fileInput.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{preview.src=r.result;preview.style.display='block'};r.readAsDataURL(f)});
+function compressImage(file){return new Promise((resolve,reject)=>{if(!file)return resolve(null);if(file.size>5*1024*1024)return reject(new Error('حجم الصورة كبير جدًا. اختاري صورة أقل من 5MB.'));const img=new Image(),r=new FileReader();r.onload=()=>img.src=r.result;r.onerror=reject;img.onload=()=>{const c=document.createElement('canvas'),max=500,scale=Math.min(1,max/Math.max(img.width,img.height));c.width=Math.round(img.width*scale);c.height=Math.round(img.height*scale);c.getContext('2d').drawImage(img,0,0,c.width,c.height);resolve(c.toDataURL('image/jpeg',.78))};img.onerror=reject;r.readAsDataURL(file)})}
+form.addEventListener('submit',async e=>{e.preventDefault();document.querySelectorAll('.alert').forEach(x=>x.classList.add('d-none'));if(!form.checkValidity()){form.classList.add('was-validated');return}const btn=document.getElementById('submitBtn');btn.disabled=true;btn.innerHTML='<span class="spinner-border spinner-border-sm"></span> جاري الإرسال...';try{const avatar=await compressImage(fileInput.files[0]);await SheTrendReviews.submit({name:document.getElementById('name').value.trim(),city:document.getElementById('city').value.trim(),rating:Number(document.querySelector('input[name="rating"]:checked').value),review_text:document.getElementById('reviewText').value.trim(),avatar_data:avatar});document.getElementById('successAlert').classList.remove('d-none');form.reset();preview.style.display='none';window.scrollTo({top:0,behavior:'smooth'})}catch(err){const box=document.getElementById('errorAlert');box.textContent=err.message||'حدث خطأ أثناء إرسال التقييم.';box.classList.remove('d-none')}finally{btn.disabled=false;btn.innerHTML='<i class="bi bi-send"></i> إرسال التقييم'}});
+</script>
+</body></html>

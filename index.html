@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>She Trend | عبايات وأزياء محتشمة</title>
+<meta name="description" content="اكتشفي تشكيلتنا من العبايات والأزياء المحتشمة بتصاميم أنيقة وعصرية من She Trend.">
+<meta property="og:title" content="She Trend | عبايات وأزياء محتشمة">
+<meta property="og:description" content="اكتشفي تشكيلتنا من العبايات والأزياء المحتشمة بتصاميم أنيقة وعصرية من She Trend.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/hero/hero-main.jpg">
+
+<!-- Bootstrap 5 RTL -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.rtl.min.css">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ ANNOUNCEMENT BAR ============ -->
+<!-- <div class="announcement-bar" id="announcementBar">
+  <div class="container announcement-inner">
+    <span class="announcement-text">توصيل سريع &nbsp;•&nbsp; أناقة تستحقها كل يوم</span>
+    <button type="button" class="announcement-close" id="announcementClose" aria-label="إغلاق الشريط">
+      <i class="bi bi-x"></i>
+    </button>
+  </div>
+</div> -->
+
+<!-- ============ NAVBAR ============ -->
+<header class="site-navbar" id="siteNavbar">
+  <nav class="container navbar-inner">
+    <div class="navbar-side navbar-icons">
+      <button class="icon-btn" id="searchToggle" aria-label="بحث"><i class="bi bi-search"></i></button>
+      <button class="icon-btn d-none d-md-inline-flex" aria-label="حسابي"><i class="bi bi-person"></i></button>
+      <button class="icon-btn cart-btn" id="cartToggle" aria-label="سلة التسوق">
+        <i class="bi bi-bag"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+
+    <a href="#" class="navbar-logo" aria-label="She Trend - الصفحة الرئيسية">
+      <span class="logo-en"><img src="assets/logo/logo2 (1).png" style="width:120px"></span>
+    </a>
+
+    <div class="navbar-side navbar-links d-none d-lg-flex">
+      <a href="#hero" class="nav-link-item">الرئيسية</a>
+      <a href="#shop" class="nav-link-item">العبايات</a>
+      <a href="#new-arrivals" class="nav-link-item">الجديد</a>
+      <a href="#trending" class="nav-link-item">الأكثر مبيعًا</a>
+      <a href="#newsletter" class="nav-link-item">العروض</a>
+    </div>
+
+    <!-- <button class="icon-btn d-lg-none" id="mobileMenuToggle" aria-label="القائمة">
+      <i class="bi bi-list"></i>
+    </button> -->
+    <button 
+  class="icon-btn d-lg-none" 
+  id="mobileMenuToggle"
+  type="button"
+  data-bs-toggle="offcanvas"
+  data-bs-target="#mobileMenu"
+  aria-controls="mobileMenu"
+  aria-label="القائمة"
+>
+  <i class="bi bi-list"></i>
+</button>
+  </nav>
+
+  <!-- Search bar (collapsible) -->
+  <div class="search-panel" id="searchPanel">
+    <div class="container search-panel-inner">
+      <i class="bi bi-search"></i>
+      <input type="text" id="searchInput" placeholder="ابحثي عن عباية، تصنيف، أو لون...">
+      <button class="icon-btn" id="searchClose" aria-label="إغلاق البحث"><i class="bi bi-x"></i></button>
+    </div>
+    <div id="searchResults" class="search-results container"></div>
+  </div>
+</header>
+
+<!-- Mobile Offcanvas Menu -->
+<div class="offcanvas offcanvas-end mobile-menu" tabindex="-1" id="mobileMenu">
+  <div class="offcanvas-header">
+    <span class="logo-en small-logo"><img src="assets/logo/logo2.png"></span>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="إغلاق"></button>
+  </div>
+  <div class="offcanvas-body">
+    <a href="#hero" class="mobile-link" data-bs-dismiss="offcanvas">الرئيسية</a>
+    <a href="#shop" class="mobile-link" data-bs-dismiss="offcanvas">العبايات</a>
+    <a href="#new-arrivals" class="mobile-link" data-bs-dismiss="offcanvas">الجديد</a>
+    <a href="#trending" class="mobile-link" data-bs-dismiss="offcanvas">الأكثر مبيعًا</a>
+    <a href="#newsletter" class="mobile-link" data-bs-dismiss="offcanvas">العروض</a>
+    <hr class="stitch-divider">
+    <a href="https://wa.me/970599094331" target="_blank" rel="noopener" class="mobile-link"><i class="bi bi-whatsapp"></i> تواصلي معنا</a>
+  </div>
+</div>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-media">
+    <img src="assets/hero/hero-abaya.jpg" alt="إطلالة من مجموعة She Trend الجديدة" id="heroImage">
+    <div class="hero-overlay"></div>
+  </div>
+  <!-- <div class="container hero-content"> -->
+    <!-- <p class="eyebrow">NEW COLLECTION</p> -->
+    <!-- <h1 class="hero-title">أناقة تليق بكِ</h1> -->
+    <!-- <p class="hero-desc">قطع مصممة لتمنحك حضورًا أنيقًا، بسيطًا، ومختلفًا.</p> -->
+    <!-- <div class="hero-actions">
+      <a href="#shop" class="btn btn-premium">اكتشفي المجموعة</a>
+      <a href="#new-arrivals" class="btn btn-premium-outline">تسوقي الآن</a>
+    </div> -->
+  <!-- </div> -->
+  <div class="hero-scroll-hint"><span></span></div>
+</section>
+
+
+<!-- ============ FEATURED CATEGORIES ============ -->
+<section class="section categories-section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Choose your abaya.</p>
+      <h2>اختاري العباية الي تشبهك </h2>
+    </div>
+    <div class="row g-3 g-lg-4 categories-grid">
+      <div class="col-6 col-lg-4 fade-in-up">
+        <a href="#shop" class="category-card" data-filter-category="يومية">
+          <img src="assets/categories/WhatsApp Image 2026-08-31 at 6.47.56 PM.jpeg" alt="عبايات عملية">
+          <div class="category-overlay"></div>
+          <div class="category-caption">
+            <h3>عبايات عملية</h3>
+            <span class="category-link">اكتشفي المجموعة <i class="bi bi-arrow-left"></i></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-6 col-lg-4 fade-in-up">
+        <a href="#shop" class="category-card" data-filter-category="مناسبات">
+          <img src="assets/categories/WhatsApp Image 2026-08-31 at 6.47.56 PM.jpeg" alt="عبايات مناسبات">
+          <div class="category-overlay"></div>
+          <div class="category-caption">
+            <h3>عبايات مناسبات</h3>
+            <span class="category-link">اكتشفي المجموعة <i class="bi bi-arrow-left"></i></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-6 col-lg-4 fade-in-up">
+        <a href="#shop" class="category-card" data-filter-category="سوداء">
+          <img src="assets/categories/WhatsApp Image 2026-08-31 at 6.47.56 PM.jpeg" alt="عبايات سوداء">
+          <div class="category-overlay"></div>
+          <div class="category-caption">
+            <h3>عبايات سوداء</h3>
+            <span class="category-link">اكتشفي المجموعة <i class="bi bi-arrow-left"></i></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-6 col-lg-4 fade-in-up">
+        <a href="#shop" class="category-card" data-filter-category="ملونة">
+          <img src="assets/categories/WhatsApp Image 2026-08-31 at 6.47.56 PM.jpeg" alt="عبايات ملونة">
+          <div class="category-overlay"></div>
+          <div class="category-caption">
+            <h3>عبايات ملونة</h3>
+            <span class="category-link">اكتشفي المجموعة <i class="bi bi-arrow-left"></i></span>
+          </div>
+        </a>
+      </div>
+
+       <div class="col-6 col-lg-4 fade-in-up">
+        <a href="#shop" class="category-card" data-filter-category="فساتين طلعة">
+          <img src="assets/categories/WhatsApp Image 2026-08-31 at 6.47.56 PM.jpeg" alt="فساتين طلعة">
+          <div class="category-overlay"></div>
+          <div class="category-caption">
+            <h3>فساتين طلعة</h3>
+            <span class="category-link">اكتشفي المجموعة <i class="bi bi-arrow-left"></i></span>
+          </div>
+        </a>
+      </div>
+
+      <div class="col-6 col-lg-4 fade-in-up">
+        <a href="#shop" class="category-card" data-filter-category="جلبابات ">
+          <img src="assets/categories/WhatsApp Image 2026-08-31 at 6.47.56 PM.jpeg" alt="جلبابات ">
+          <div class="category-overlay"></div>
+          <div class="category-caption">
+            <h3>جلبابات </h3>
+            <span class="category-link">اكتشفي المجموعة <i class="bi bi-arrow-left"></i></span>
+          </div>
+        </a>
+      </div>
+
+      
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEW ARRIVALS ============ -->
+<section class="section" id="new-arrivals">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">FRESH ARRIVALS</p>
+      <h2>وصل حديثًا</h2>
+      <p class="section-sub">اكتشفي احلى الموديلات الحصرية الي وصلتنا جديد 🤎</p>
+    </div>
+    <div class="row g-3 g-lg-4" id="newArrivalsGrid"></div>
+  </div>
+</section>
+
+<!-- ============ SHOP / PRODUCT COLLECTION ============ -->
+<section class="section shop-section" id="shop">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">THE COLLECTION</p>
+      <h2>تسوقي بجميع الموديلات</h2>
+    </div>
+
+    <div class="shop-toolbar">
+      <button class="btn btn-premium-outline filters-mobile-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#filtersOffcanvas">
+        <i class="bi bi-sliders"></i> للبحث التفصيلي
+      </button>
+      <span class="product-count" id="productCount">12 منتج</span>
+      <select class="sort-select" id="sortSelect" aria-label="ترتيب المنتجات">
+        <option value="newest">الأحدث</option>
+        <option value="bestselling">الأكثر مبيعًا</option>
+        <option value="price-asc">السعر: من الأقل للأعلى</option>
+        <option value="price-desc">السعر: من الأعلى للأقل</option>
+      </select>
+    </div>
+
+    <div class="shop-layout">
+      <!-- Desktop Filters Sidebar -->
+      <aside class="filters-sidebar d-none d-lg-block" id="filtersSidebar"></aside>
+
+      <!-- Product Grid -->
+      <div class="shop-products">
+        <div class="row g-3 g-lg-4" id="shopGrid"></div>
+        <p class="no-results d-none" id="noResults">لم يتم العثور على منتجات مطابقة لبحثك.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mobile Filters Offcanvas -->
+<div class="offcanvas offcanvas-start filters-offcanvas" tabindex="-1" id="filtersOffcanvas">
+  <div class="offcanvas-header">
+    <h5>للبحث التفصيلي</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="إغلاق"></button>
+  </div>
+  <div class="offcanvas-body" id="filtersSidebarMobile"></div>
+  <div class="offcanvas-footer">
+    <button class="btn btn-premium w-100" data-bs-dismiss="offcanvas">عرض النتائج</button>
+  </div>
+</div>
+
+<!-- ============ TRENDING SECTION ============ -->
+<section class="section trending-section" id="trending">
+  <div class="container">
+    <div class="trending-heading">
+      <div>
+        
+        <h2>العبايات الترند بشي ترند 🤎</h2>
+        <p class="section-sub">موديلات ترندية وحصرية بس بتلاقيها عنا بشي ترند🤎</p>
+      </div>
+      <div class="trending-arrows d-none d-md-flex">
+        <button class="carousel-arrow" id="trendPrev" aria-label="السابق"><i class="bi bi-arrow-right"></i></button>
+        <button class="carousel-arrow" id="trendNext" aria-label="التالي"><i class="bi bi-arrow-left"></i></button>
+      </div>
+    </div>
+    <div class="trending-track-wrap">
+      <div class="trending-track" id="trendingTrack"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BRAND STORY ============ -->
+<section class="section brand-story">
+  <div class="container">
+    <div class="row align-items-center g-0 story-row">
+      <div class="col-lg-6 story-image-col">
+        <img src="assets/categories/atelier-detail.jpg" alt="قصة علامة She Trend">
+      </div>
+      <div class="col-lg-6 story-text-col">
+        <p class="eyebrow">قصتنـــا</p>
+        <h2 class="story-quote">"نؤمن أن الاحتشام لا يعني التنازل عن الأناقة."</h2>
+        <p class="story-paragraph">
+        بدأت قصتنا من معاناتي الشخصية وأنا أدور بـ غزة على عباية خامتها راقية وستايلها بيشبهني؛ للأسف كان التركيز بالسوق عالربح أكتر من الجودة، والخامات تتكرمش وتشمر مع الغسيل وتنسل.
+ولأني بملك شركة تسويق وكنت أنا وفريقي سبب نجاح مشاريع عبايات كبيرة بالخليج، قلت: ليش ما نشتغل لبلدنا بنفس الجودة؟ ومن هين انولد براند "شي ترند" براند هدفه التميز والارتقاء بالمويلات والخامات.
+قررنا نجيب أفضل الخامات الخليجية ونقدّم ستايلات حصرية ما بتتكرر، واخترنا نعتمد عـ التجارة الإلكترونية لأنها هي المستقبل القادم. 
+هدفنا نلبي كل الاحتياجات، بين عبايات عملية للدوام والجامعة، وستايلات أنيقة للطلعات والمناسبات؛ بنواكب الموضة دايماً واحنا الي بنصنع الترند لانه عباياتنا حصرية ومش متكررة وبكوالتي عالية وزبايننا بتشهد 🫶
+        </p>
+        <a href="#" class="btn btn-premium-outline">تعرّفي علينا</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CUSTOMER REVIEWS ============ -->
+<section class="section reviews-section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">TESTIMONIALS</p>
+      <h2>شو بيحكو عن شي ترند؟🤎 </h2>
+      <a class="reviews-write-link" href="customer.html"><i class="bi bi-heart"></i> شاركينا تجربتك</a>
+    </div>
+    <div class="row g-3 g-lg-4" id="reviewsGrid"></div>
+  </div>
+</section>
+
+<!-- ============ INSTAGRAM SECTION ============ -->
+<section class="section instagram-section">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">FOLLOW ALONG</p>
+      <h2>تابعينا على إنستغرام</h2>
+      <p class="section-sub">@Shetrend.gaza</p>
+    </div>
+    <div class="instagram-grid" id="instagramGrid"></div>
+    <div class="text-center mt-4">
+      <a href="https://www.instagram.com/shetrend.gaza/" target="_blank" rel="noopener" class="btn btn-premium-outline">تابعينا</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="section newsletter-section" id="newsletter">
+  <div class="container">
+    <div class="newsletter-box">
+      <p class="eyebrow">STAY IN TOUCH</p>
+      <h2>انضمي معنا بقناتنا عالانستا </h2>
+      <p class="section-sub">ليصلك كل جديد وأحدث العروض</p>
+      <!-- <form id="newsletterForm" class="newsletter-form" novalidate>
+        <input type="email" id="newsletterEmail" placeholder="بريدك الإلكتروني" required aria-label="البريد الإلكتروني">
+        <button type="submit" class="btn btn-premium">اشتراك</button>
+      </form> -->
+      <a href="https://www.instagram.com/channel/AbY8fThiSBTxR4-3/"
+   target="_blank"
+   rel="noopener"
+   class="instagram-channel-btn"
+   aria-label="انضمي إلى قناتنا على إنستغرام">
+
+  <i class="bi bi-instagram"></i>
+
+  <span>
+    <strong>اضغطي هنا لقناتنا على إنستغرام</strong>
+    <small>كوني أول من يعرف جديد شي ترند  ✨</small>
+  </span>
+
+  <i class="bi bi-arrow-left"></i>
+
+</a>
+      <p class="newsletter-success d-none" id="newsletterSuccess"><i class="bi bi-check-circle"></i> تم اشتراكك بنجاح، أهلًا بكِ في عائلة She Trend 🤍</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4 footer-top">
+      <div class="col-lg-4">
+        <span class="logo-en footer-logo"><img src="assets/logo/IMG_3901.PNG" style="width:150px"></span>
+        <p class="footer-tagline">اختيارك لنا هو تميزك</p>
+        <div class="footer-social">
+          <a href="https://wa.me/970599094331" target="_blank" rel="noopener" aria-label="واتساب"><i class="bi bi-whatsapp"></i></a>
+          <a href="#" target="_blank" rel="noopener" aria-label="انستغرام"><i class="bi bi-instagram"></i></a>
+          <a href="#" target="_blank" rel="noopener" aria-label="تيك توك"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6>روابط</h6>
+        <ul class="footer-links">
+          <li><a href="#hero">الرئيسية</a></li>
+          <li><a href="#shop">المتجر</a></li>
+          <li><a href="#new-arrivals">الجديد</a></li>
+          <li><a href="#trending">الأكثر مبيعًا</a></li>
+          <li><a href="#">من نحن</a></li>
+          <li><a href="#">تواصل معنا</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3">
+        <h6>المساعدة</h6>
+        <ul class="footer-links">
+          <li><a href="#">الأسئلة الشائعة</a></li>
+          <li><a href="#">سياسة الاستبدال</a></li>
+          <li><a href="#">سياسة الشحن</a></li>
+          <li><a href="#">سياسة الخصوصية</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6>تواصل معنا</h6>
+        <ul class="footer-links">
+          <li><a href="https://wa.me/970599094331" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> واتساب</a></li>
+          <li><a href="https://www.instagram.com/shetrend.gaza/" target="_blank" rel="noopener"><i class="bi bi-instagram"></i> انستغرام</a></li>
+          <li><a href="https://www.tiktok.com/@shetrend.gaza" target="_blank" rel="noopener"><i class="bi bi-tiktok"></i> تيك توك</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="stitch-divider">
+    <p class="footer-bottom">© 2026 SHE TREND. جميع الحقوق محفوظة.</p>
+  </div>
+</footer>
+
+<!-- ============ FLOATING WHATSAPP ============ -->
+<!-- <a href="https://wa.me/970599094331" target="_blank" rel="noopener" class="whatsapp-float" aria-label="تواصلي معنا عبر واتساب">
+  <i class="bi bi-whatsapp"></i>
+  <span class="whatsapp-tooltip">تواصلي معنا</span>
+</a> -->
+<!-- ============ FLOATING SOCIAL BUTTONS ============ -->
+
+<div class="social-float">
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/970599094331"
+     target="_blank"
+     rel="noopener"
+     class="social-btn whatsapp-float"
+     aria-label="تواصلي معنا عبر واتساب">
+    <i class="bi bi-whatsapp"></i>
+    <span class="social-tooltip">تواصلي معنا عبر واتساب</span>
+  </a>
+
+  <!-- Instagram -->
+  <a href="https://www.instagram.com/shetrend.gaza/"
+     target="_blank"
+     rel="noopener"
+     class="social-btn instagram-float"
+     aria-label="تابعينا على إنستغرام">
+    <i class="bi bi-instagram"></i>
+    <span class="social-tooltip">تابعينا على إنستغرام</span>
+  </a>
+
+  <!-- Messenger -->
+  <a href="https://www.facebook.com/profile.php?id=61560543704700"
+     target="_blank"
+     rel="noopener"
+     class="social-btn messenger-float"
+     aria-label="تواصلي معنا عبر مسنجر">
+    <i class="bi bi-messenger"></i>
+    <span class="social-tooltip">تواصلي معنا عبر مسنجر</span>
+  </a>
+
+</div>
+
+<!-- ============ STICKY MOBILE CART BAR ============ -->
+<div class="sticky-cart-bar d-lg-none d-none" id="stickyCartBar">
+  <button class="btn btn-premium w-100" id="stickyCartBtn">
+    <i class="bi bi-bag"></i> عرض السلة (<span id="stickyCartCount">0</span>) — <span id="stickyCartTotal">0</span> ر.س
+  </button>
+</div>
+
+<!-- ============ CART OFFCANVAS ============ -->
+<div class="offcanvas offcanvas-end cart-offcanvas" tabindex="-1" id="cartOffcanvas">
+  <div class="offcanvas-header">
+    <h5>سلة التسوق</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="إغلاق"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div id="cartEmptyState" class="cart-empty d-none">
+      <i class="bi bi-bag"></i>
+      <p>سلتك فارغة حاليًا</p>
+      <button class="btn btn-premium-outline" data-bs-dismiss="offcanvas">متابعة التسوق</button>
+    </div>
+    <div id="cartItemsList" class="cart-items-list"></div>
+  </div>
+  <div class="cart-footer" id="cartFooter">
+    <div class="cart-total-row">
+      <span>المجموع:</span>
+      <span id="cartTotal">0 شيكل</span>
+    </div>
+    <button class="btn btn-premium-outline w-100" data-bs-dismiss="offcanvas">متابعة التسوق</button>
+    <button class="btn btn-premium w-100" id="checkoutBtn">إتمام الطلب عبر واتساب</button>
+  </div>
+</div>
+
+<!-- ============ PRODUCT QUICK VIEW MODAL ============ -->
+<div class="modal fade quickview-modal" id="quickViewModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+      <div class="modal-body" id="quickViewBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CHECKOUT MODAL ============ -->
+<div class="modal fade checkout-modal" id="checkoutModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">بيانات إتمام الطلب</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+      </div>
+      <div class="modal-body">
+        <p class="checkout-note">أدخلي بياناتك وسنقوم بتحويلك لواتساب لإتمام طلبك مباشرة معنا.</p>
+        <form id="checkoutForm" class="checkout-form" novalidate>
+          <div class="mb-3">
+            <label class="form-label" for="custName">الاسم الكامل *</label>
+            <input type="text" class="form-control" id="custName" required>
+            <div class="invalid-feedback">الرجاء إدخال الاسم الكامل.</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="custPhone">رقم الجوال *</label>
+            <input type="tel" class="form-control" id="custPhone" required placeholder="05xxxxxxxx">
+            <div class="invalid-feedback">الرجاء إدخال رقم جوال صحيح.</div>
+          </div>
+          <div class="row">
+            <div class="col-6 mb-3">
+              <label class="form-label" for="custCity">المدينة *</label>
+              <input type="text" class="form-control" id="custCity" required>
+              <div class="invalid-feedback">الرجاء إدخال المدينة.</div>
+            </div>
+            <div class="col-6 mb-3">
+              <label class="form-label" for="custAddress">العنوان *</label>
+              <input type="text" class="form-control" id="custAddress" required>
+              <div class="invalid-feedback">الرجاء إدخال العنوان.</div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="custNotes">ملاحظات / استفسار</label>
+            <textarea class="form-control" id="custNotes" rows="3" placeholder="اكتبي أي ملاحظة أو استفسار يخص طلبك"></textarea>
+          </div>
+
+          <div class="order-summary" id="orderSummary"></div>
+
+          <button type="submit" class="btn btn-premium w-100">
+            <i class="bi bi-whatsapp"></i> إرسال الطلب عبر واتساب
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TOAST CONTAINER ============ -->
+<div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3" id="toastContainer" style="z-index: 1200;"></div>
+
+<!-- Bootstrap Bundle -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/reviews-config.js"></script>
+<script src="js/reviews.js"></script> -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/reviews-config.js"></script>
+<script src="js/reviews.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
