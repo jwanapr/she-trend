@@ -1522,3 +1522,16 @@ html, body{ max-width:100%; overflow-x:hidden; }
     border-radius: 7px;
   }
 }
+
+
+
+
+.section-heading h2 {
+    line-height: 2;
+}
+a.reviews-write-link {
+    background: #a47551;
+    color: #d5dfdd;
+    padding: 8px;
+    border-radius: 10px;
+}
