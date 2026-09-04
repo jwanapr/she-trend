@@ -1535,13 +1535,14 @@ html, body{ max-width:100%; overflow-x:hidden; }
 .section-heading h2 {
     line-height: 2;
 }
+
 a.reviews-write-link {
+    position: relative;
     background: #a47551;
     color: #d5dfdd;
     padding: 8px;
     border-radius: 0px;
 }
-
 
 a.reviews-write-link::before {
     content: "➜";
