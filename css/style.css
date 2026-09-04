@@ -4,7 +4,7 @@
   --accent:#A47551;        
   --accent-light:#C9A788;
   --background: #a9bbb7;    
-  --surface:#FFFFFF;
+  --surface:#e7edecbf;
   --text:#211E1B;
   --muted:#75695D;
   --border:#E6DFD3;
@@ -428,7 +428,7 @@ button{ font-family:inherit; }
 .product-card{
   position:relative;
   background:var(--surface);
-  border:1px solid var(--border);
+  /* border:1px solid var(--border); */
   border-radius:var(--radius);
   overflow:hidden;
   height:100%;
