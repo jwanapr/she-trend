@@ -1,13 +1,9 @@
-/* =====================================================
-   SHE TREND — Premium Modest Fashion E-Commerce
-   Design tokens
-   ===================================================== */
 :root{
-  --primary:#1C1A17;        /* ink / near-black warm */
-  --secondary:#8A7B6C;      /* warm taupe */
-  --accent:#A47551;         /* bronze / caramel */
+  --primary:#6d3b27;        
+  --secondary:#8A7B6C;      
+  --accent:#A47551;        
   --accent-light:#C9A788;
-  --background: #a9bbb7;     /* soft ivory */
+  --background: #a9bbb7;    
   --surface:#FFFFFF;
   --text:#211E1B;
   --muted:#75695D;
