@@ -1539,5 +1539,29 @@ a.reviews-write-link {
     background: #a47551;
     color: #d5dfdd;
     padding: 8px;
-    border-radius: 10px;
+    border-radius: 0px;
+}
+
+
+a.reviews-write-link::before {
+    content: "➜";
+    position: absolute;
+    right: -48px;
+    top: 0;
+    transform: translateY(-50%);
+    color: #a47551;
+    font-size: 32px;
+    font-weight: 900;
+    animation: arrowPoint 0.8s ease-in-out infinite;
+     transform: scaleX(-1);
+}
+
+@keyframes arrowPoint {
+    0%, 100% {
+        right: -48px;
+    }
+
+    50% {
+        right: -38px;
+    }
 }
