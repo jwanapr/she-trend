@@ -1163,11 +1163,11 @@ html, body{ max-width:100%; overflow-x:hidden; }
 }
 
 .product-availability.available{
-  color:#26ed08;
+  color:#23ca62;
 }
 
 .product-availability.available .availability-dot{
-  background:#26ed08;
+  background:#23ca62;
 }
 
 .product-availability.unavailable{
