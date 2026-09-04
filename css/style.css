@@ -26,9 +26,15 @@ html{scroll-behavior:smooth;}
   html{scroll-behavior:auto;}
   *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
 }
-
+@font-face {
+    font-family: 'DahabArabic';
+    src: url('./font/DahabArabicITF-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
 body{
-  font-family:'Alexandria', sans-serif;
+   font-family: 'DahabArabic', sans-serif !important;
   background:var(--background);
   color:var(--text);
   font-weight:400;
@@ -37,7 +43,7 @@ body{
 }
 
 h1,h2,h3,h4,h5,h6{
-  font-family:'Alexandria', sans-serif;
+   font-family: 'DahabArabic', sans-serif !important;
   font-weight:600;
   color:var(--primary);
   margin:0;
