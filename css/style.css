@@ -1126,7 +1126,7 @@ button{ font-family:inherit; }
   transform:translateY(24px);
   transition:opacity .7s var(--ease), transform .7s var(--ease);
 }
-.fade-in-up.visible{ opacity:1; transform:translateY(0); }
+.fade-in-up.visible{ opacity:1; transform:translateY(0); margin-bottom: 28px;}
 
 /* =====================================================
    RESPONSIVE — SHOP LAYOUT COLLAPSE
