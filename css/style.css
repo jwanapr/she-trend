@@ -427,8 +427,8 @@ button{ font-family:inherit; }
    ===================================================== */
 .product-card{
   position:relative;
-  background: #a8bcb77a;
-  border-radius:var(--radius);
+  background:#e7edecbf;
+  /* border-radius:var(--radius); */
   overflow:hidden;
   height:100%;
   transition:box-shadow .35s var(--ease), border-color .35s var(--ease);
