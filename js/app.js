@@ -591,15 +591,65 @@ async function renderReviews(){
 
 function renderInstagram(){
   const grid = document.getElementById("instagramGrid");
-  let html = "";
-  for(let i=1;i<=6;i++){
-    html += `
-      <a href="#" target="_blank" rel="noopener" class="insta-item" aria-label="منشور انستغرام ${i}">
-        <img src="assets/instagram/insta-${i}.jpg" alt="منشور She Trend على انستغرام ${i}" loading="lazy">
-        <div class="insta-overlay"><i class="bi bi-instagram"></i></div>
-      </a>`;
-  }
-  grid.innerHTML = html;
+
+  if(!grid) return;
+
+  const reels = [
+    {
+      url: "https://www.instagram.com/reel/DbjM-lkMBXa/",
+      image: "assets/instagram/insta-1.jpeg",
+      views: "390K"
+    },
+    {
+      url: "https://www.instagram.com/reel/DbgGq7CsTe8/",
+      image: "assets/instagram/insta-2.jpeg",
+      views: "26.1K"
+    },
+    {
+      url: "https://www.instagram.com/reel/Dbd9HP4MqZe/?igsi=eHpzbTk5NGF2MWdh",
+      image: "assets/instagram/insta-3.jpeg",
+      views: "41K"
+    },
+    {
+      url: "https://www.instagram.com/reel/DbgGq7CsTe8/",
+      image: "assets/instagram/insta-4.jpeg",
+      views: "100K"
+    }
+  ];
+
+  grid.innerHTML = reels.map((reel, index) => `
+    
+    <div class="instagram-card">
+
+      <a
+        href="${reel.url}"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="insta-item"
+        aria-label="مشاهدة ريل She Trend على إنستغرام ${index + 1}"
+      >
+
+        <img
+          src="${reel.image}"
+          alt="ريل She Trend على إنستغرام ${index + 1}"
+          loading="lazy"
+        >
+
+        <div class="insta-overlay">
+          <i class="bi bi-instagram"></i>
+        </div>
+
+      </a>
+
+      <div class="insta-views">
+        <i class="bi bi-play-fill"></i>
+        <span>${reel.views}</span>
+        <span>مشاهدة</span>
+      </div>
+
+    </div>
+
+  `).join("");
 }
 
 /* ============================ WISHLIST ============================ */
