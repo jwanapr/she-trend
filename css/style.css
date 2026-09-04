@@ -727,7 +727,7 @@ button{ font-family:inherit; }
 /* =====================================================
    NEWSLETTER
    ===================================================== */
-.newsletter-section{ background:#3b2920; }
+.newsletter-section{ background:#6d3b27; }
 .newsletter-box{ text-align:center; max-width:560px; margin:0 auto; color:#fff; }
 .newsletter-box .eyebrow{ color:var(--accent-light); }
 .newsletter-box h2{ color:#fff; margin-bottom:10px; }
@@ -833,7 +833,7 @@ button{ font-family:inherit; }
 /* =====================================================
    FOOTER
    ===================================================== */
-.site-footer{ background:#2d211b; color:#C9C2B6; padding:64px 0 24px; }
+.site-footer{ background:#6d3b27; color:#C9C2B6; padding:64px 0 24px; }
 .footer-top{ margin-bottom:20px; }
 .footer-logo{ color:#fff; font-size:1.5rem; }
 .footer-tagline{ color:#A79E90; margin:12px 0 18px; font-size:0.9rem; }
