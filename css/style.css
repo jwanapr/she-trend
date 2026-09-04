@@ -1566,16 +1566,4 @@ a.reviews-write-link::before {
         right: -38px;
     }
 }
-.reviews-write-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
 
-.reviews-write-link::after {
-  content: "➜";
-  display: inline-block;
-  transform: scaleX(-1);
-  font-size: 22px;
-  line-height: 1;
-}
