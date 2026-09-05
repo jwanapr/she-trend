@@ -165,6 +165,25 @@ const products = [
   bestSeller: true,
   available: false,
     dateAdded: "2026-08-10"
+  },
+   {
+    id: 8,
+    name: "عباية الدوام",
+    category: "يومية",
+    price: 0,
+    oldPrice: 250,
+    colors: ["أسود"],
+    sizes: [ "56", "58"],
+    image: "assets/products/doam.jpeg",
+    image2: "assets/products/doam.jpeg",
+    badge: "بلد الاستيراد: اليمن",
+    description: "عباية بقصة أنيقة وانسيابية مناسبة للإطلالات اليومية.",
+    fabricType:  "  قماش بليزر واقف",
+    styleType: ["عملي", "ستريت ", " سادة "],
+    isNew: true,
+  bestSeller: true,
+  available: true,
+    dateAdded: "2026-08-10"
   }
 ];
 
