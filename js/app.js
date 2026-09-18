@@ -61,7 +61,7 @@ const products = [
     styleType: ["صيفي", "كلوش عادي", "نقشة عالكم والشالة"],
     isNew: true,
   bestSeller: true,
-  available: true,
+  available: false,
     dateAdded: "2026-08-10",
   },
 
@@ -101,7 +101,7 @@ const products = [
     styleType: ["صيفي", "ضبل كلوش", "نقشة على الكُم الإيد"],
     isNew: true,
   bestSeller: true,
-  available: true,
+  available: false,
     dateAdded: "2026-08-10"
   },
 
