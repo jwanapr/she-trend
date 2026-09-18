@@ -639,28 +639,61 @@ function renderTrending(){
 //   `).join("");
 //   observeFadeIns(grid);
 // }
-async function renderReviews(){
-  const grid = document.getElementById("reviewsGrid");
 
-  if(!grid) return;
+/* =========================================================
+   CUSTOMER REVIEWS CAROUSEL
+========================================================= */
+
+async function renderReviews() {
+
+  const grid = document.getElementById("reviewsGrid");
+  const dotsContainer = document.getElementById("reviewsDots");
+
+  if (!grid) return;
 
   try {
-    const approvedReviews = await SheTrendReviews.getApproved();
 
-    grid.innerHTML = approvedReviews.map(r => `
-      <div class="col-md-6 col-lg-4 fade-in-up">
+    const approvedReviews =
+      await SheTrendReviews.getApproved();
+
+    /* لا توجد آراء */
+    if (!approvedReviews || approvedReviews.length === 0) {
+
+      grid.innerHTML = "";
+      if (dotsContainer) dotsContainer.innerHTML = "";
+
+      return;
+    }
+
+
+    /* =====================================================
+       RENDER REVIEWS
+    ===================================================== */
+
+    grid.innerHTML = approvedReviews.map((r, index) => `
+
+      <div class="review-slide fade-in-up">
+
         <div class="review-card">
+
           <div class="review-stars">
+
             <i class="bi bi-star-fill"></i>
             <i class="bi bi-star-fill"></i>
             <i class="bi bi-star-fill"></i>
             <i class="bi bi-star-fill"></i>
             <i class="bi bi-star-fill"></i>
+
           </div>
 
-          <p class="review-text">"${r.review_text || r.text || ''}"</p>
+
+          <p class="review-text">
+            "${r.review_text || r.text || ''}"
+          </p>
+
 
           <div class="review-author">
+
             <img
               src="${r.avatar_data || r.avatar || 'assets/testimonials/avatar-1.jpg'}"
               alt="${r.name || ''}"
@@ -668,21 +701,360 @@ async function renderReviews(){
             >
 
             <div>
-              <div class="review-name">${r.name || ''}</div>
-              <div class="review-city">${r.city || ''}</div>
+
+              <div class="review-name">
+                ${r.name || ''}
+              </div>
+
+              <div class="review-city">
+                ${r.city || ''}
+              </div>
+
             </div>
+
           </div>
+
         </div>
+
       </div>
+
     `).join("");
 
-    observeFadeIns(grid);
+
+    /* =====================================================
+       ELEMENTS
+    ===================================================== */
+
+    const slides =
+      Array.from(grid.querySelectorAll(".review-slide"));
+
+    const prevButton =
+      document.querySelector(".reviews-prev");
+
+    const nextButton =
+      document.querySelector(".reviews-next");
+
+
+    if (!slides.length) return;
+
+
+    /* =====================================================
+       عدد الصفحات
+       Desktop = 3
+       Tablet = 2
+       Mobile = 1
+    ===================================================== */
+
+    function getSlidesPerView() {
+
+      if (window.innerWidth <= 575) {
+        return 1;
+      }
+
+      if (window.innerWidth <= 991) {
+        return 2;
+      }
+
+      return 3;
+    }
+
+
+    function getTotalPages() {
+
+      const perView = getSlidesPerView();
+
+      return Math.max(
+        1,
+        Math.ceil(slides.length / perView)
+      );
+    }
+
+
+    /* =====================================================
+       DOTS
+    ===================================================== */
+
+    let currentPage = 0;
+
+    function createDots() {
+
+      if (!dotsContainer) return;
+
+      const totalPages = getTotalPages();
+
+      dotsContainer.innerHTML = "";
+
+      for (let i = 0; i < totalPages; i++) {
+
+        const dot =
+          document.createElement("button");
+
+        dot.type = "button";
+
+        dot.className =
+          "review-dot" +
+          (i === currentPage ? " active" : "");
+
+        dot.setAttribute(
+          "aria-label",
+          `الانتقال إلى مجموعة الآراء ${i + 1}`
+        );
+
+        dot.addEventListener("click", () => {
+
+          goToPage(i);
+
+          restartAutoplay();
+
+        });
+
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+
+    function updateDots() {
+
+      if (!dotsContainer) return;
+
+      const dots =
+        dotsContainer.querySelectorAll(".review-dot");
+
+      dots.forEach((dot, index) => {
+
+        dot.classList.toggle(
+          "active",
+          index === currentPage
+        );
+
+      });
+    }
+
+
+    /* =====================================================
+       الانتقال إلى صفحة
+    ===================================================== */
+
+    function goToPage(page) {
+
+      const totalPages = getTotalPages();
+
+      if (totalPages <= 1) {
+        currentPage = 0;
+      } else {
+
+        if (page < 0) {
+          page = totalPages - 1;
+        }
+
+        if (page >= totalPages) {
+          page = 0;
+        }
+
+        currentPage = page;
+      }
+
+
+      const perView = getSlidesPerView();
+
+      const targetIndex =
+        currentPage * perView;
+
+      const targetSlide =
+        slides[targetIndex];
+
+      if (targetSlide) {
+
+        grid.scrollTo({
+
+          left:
+            targetSlide.offsetLeft -
+            grid.offsetLeft,
+
+          behavior: "smooth"
+
+        });
+
+      }
+
+      updateDots();
+    }
+
+
+    /* =====================================================
+       NEXT / PREVIOUS
+    ===================================================== */
+
+    if (nextButton) {
+
+      nextButton.addEventListener("click", () => {
+
+        goToPage(currentPage + 1);
+
+        restartAutoplay();
+
+      });
+
+    }
+
+
+    if (prevButton) {
+
+      prevButton.addEventListener("click", () => {
+
+        goToPage(currentPage - 1);
+
+        restartAutoplay();
+
+      });
+
+    }
+
+
+    /* =====================================================
+       AUTOPLAY
+       كل 4 ثواني
+    ===================================================== */
+
+    let autoplayTimer = null;
+
+    function startAutoplay() {
+
+      if (slides.length <= getSlidesPerView()) {
+        return;
+      }
+
+      clearInterval(autoplayTimer);
+
+      autoplayTimer = setInterval(() => {
+
+        goToPage(currentPage + 1);
+
+      }, 4000);
+    }
+
+
+    function stopAutoplay() {
+
+      clearInterval(autoplayTimer);
+
+      autoplayTimer = null;
+    }
+
+
+    function restartAutoplay() {
+
+      stopAutoplay();
+
+      startAutoplay();
+
+    }
+
+
+    /* =====================================================
+       عند سحب السلايدر باليد
+    ===================================================== */
+
+    grid.addEventListener("pointerdown", () => {
+
+      stopAutoplay();
+
+    });
+
+
+    grid.addEventListener("pointerup", () => {
+
+      restartAutoplay();
+
+    });
+
+
+    grid.addEventListener("pointercancel", () => {
+
+      restartAutoplay();
+
+    });
+
+
+    /* =====================================================
+       عند مرور الماوس
+    ===================================================== */
+
+    grid.addEventListener("mouseenter", () => {
+
+      stopAutoplay();
+
+    });
+
+
+    grid.addEventListener("mouseleave", () => {
+
+      restartAutoplay();
+
+    });
+
+
+    /* =====================================================
+       تحديث الصفحة عند تغيير حجم الشاشة
+    ===================================================== */
+
+    let resizeTimer;
+
+    window.addEventListener("resize", () => {
+
+      clearTimeout(resizeTimer);
+
+      resizeTimer = setTimeout(() => {
+
+        currentPage = 0;
+
+        createDots();
+
+        goToPage(0);
+
+        restartAutoplay();
+
+      }, 150);
+
+    });
+
+
+    /* =====================================================
+       INITIALIZE
+    ===================================================== */
+
+    createDots();
+
+    goToPage(0);
+
+    startAutoplay();
+
+
+    /* Fade animation */
+    if (typeof observeFadeIns === "function") {
+      observeFadeIns(grid);
+    }
+
 
   } catch(error) {
-    console.error("تعذر تحميل التعليقات:", error);
+
+    console.error(
+      "تعذر تحميل التعليقات:",
+      error
+    );
+
     grid.innerHTML = "";
+
+    if (dotsContainer) {
+      dotsContainer.innerHTML = "";
+    }
+
   }
+
 }
+
+
+
 
 function renderInstagram(){
   const grid = document.getElementById("instagramGrid");
