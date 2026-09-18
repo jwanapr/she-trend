@@ -727,7 +727,7 @@ button{ font-family:inherit; }
 /* =====================================================
    NEWSLETTER
    ===================================================== */
-.newsletter-section{ background:#6d3b27; }
+.newsletter-section{ background: linear-gradient(360deg, #6d3b27, #6d3b279e, #a9bbb7); }
 .newsletter-box{ text-align:center; max-width:560px; margin:0 auto; color:#fff; }
 .newsletter-box .eyebrow{ color:var(--accent-light); }
 .newsletter-box h2{ color:#fff; margin-bottom:10px; }
