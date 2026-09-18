@@ -729,7 +729,8 @@ button{ font-family:inherit; }
    ===================================================== */
 .newsletter-section{ background: linear-gradient(360deg, #6d3b27, #6d3b279e, #a9bbb7); }
 .newsletter-box{ text-align:center; max-width:560px; margin:0 auto; color:#fff; }
-.newsletter-box .eyebrow{ color:var(--accent-light); }
+.newsletter-box .eyebrow{ color: #6d3b27;
+    font-weight: bold; }
 .newsletter-box h2{ color:#fff; margin-bottom:10px; }
 .newsletter-box .section-sub{ color:#D8CFC2; margin-bottom:30px; }
 /* .newsletter-form{
