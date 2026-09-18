@@ -908,17 +908,17 @@ button{ font-family:inherit; }
 }
 
 .social-btn {
-  position: relative;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.6rem;
-  text-decoration: none;
-  transition: transform .25s ease, box-shadow .25s ease;
+ position: relative;
+    width: 46px;
+    height: 53px;
+    border-radius: 0px;
+    color: #fff;
+    display: flex;
+    font-size: 1.6rem;
+    text-decoration: none;
+    transition: transform .25s ease, box-shadow .25s ease;
+    align-items: center;
+    justify-content: center;
 }
 
 /* WhatsApp */
@@ -1534,7 +1534,7 @@ html, body{ max-width:100%; overflow-x:hidden; }
 
 a.reviews-write-link {
     position: relative;
-    background: #a47551;
+    background: #6d3b27;
     color: #d5dfdd;
     padding: 8px;
     border-radius: 0px;
@@ -1546,7 +1546,7 @@ a.reviews-write-link::before {
     right: -48px;
     top: 0;
     transform: translateY(-50%);
-    color: #a47551;
+    color: #6d3b27;
     font-size: 32px;
     font-weight: 900;
     animation: arrowPoint 0.8s ease-in-out infinite;
@@ -1675,4 +1675,197 @@ a.reviews-write-link::before {
   .insta-views i {
     font-size: 10px;
   }
+}
+
+
+/* =========================================================
+   CUSTOMER REVIEWS CAROUSEL
+========================================================= */
+
+.reviews-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
+/* =========================================================
+   SLIDER
+========================================================= */
+
+.reviews-slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.reviews-slider {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-behavior: smooth;
+
+  scrollbar-width: none;
+
+  -webkit-overflow-scrolling: touch;
+
+  cursor: grab;
+
+  padding: 10px 3px 20px;
+}
+
+.reviews-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.reviews-slider:active {
+  cursor: grabbing;
+}
+
+
+/* =========================================================
+   REVIEW ITEM
+========================================================= */
+
+.review-slide {
+  flex: 0 0 calc(33.333% - 14px);
+  max-width: calc(33.333% - 14px);
+}
+
+.review-card {
+  height: 100%;
+}
+
+
+/* =========================================================
+   ARROWS
+========================================================= */
+
+.reviews-arrow {
+  flex: 0 0 42px;
+
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  border-radius: 50%;
+
+  background: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease;
+
+  z-index: 5;
+}
+
+.reviews-arrow i {
+  font-size: 18px;
+}
+
+.reviews-arrow:hover {
+  transform: scale(1.08);
+  background: #f5f1ec;
+  border-color: #b44626;
+}
+
+
+/* =========================================================
+   DOTS
+========================================================= */
+
+.reviews-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-top: 8px;
+}
+
+.review-dot {
+  width: 7px;
+  height: 7px;
+
+  padding: 0;
+  border: 0;
+
+  border-radius: 50%;
+
+  background: #d5d0cb;
+
+  cursor: pointer;
+
+  transition:
+    width 0.25s ease,
+    background 0.25s ease;
+}
+
+.review-dot.active {
+  width: 22px;
+  border-radius: 10px;
+
+  background: #b44626;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 991px) {
+
+  .review-slide {
+    flex: 0 0 calc(50% - 10px);
+    max-width: calc(50% - 10px);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 575px) {
+
+  .reviews-carousel {
+    gap: 6px;
+  }
+
+  .review-slide {
+    flex: 0 0 88%;
+    max-width: 88%;
+  }
+
+  .reviews-slider {
+    gap: 14px;
+
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+  .reviews-arrow {
+    flex: 0 0 36px;
+
+    width: 36px;
+    height: 36px;
+  }
+
+  .reviews-arrow i {
+    font-size: 15px;
+  }
+
 }
