@@ -1895,3 +1895,8 @@ button#stickyCartBtn {
     width: 100%;
     padding: 10px;
 }
+
+.trending-track .product-card {
+    width: 260px;
+    height: 646px;
+}
