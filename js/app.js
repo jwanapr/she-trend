@@ -101,7 +101,7 @@ const products = [
     isNew: true,
     bestSeller: true,
     available: true,
-    dateAdded: "2026-08-01"
+    dateAdded: "2026-08-20"
   },
 
   {
@@ -241,7 +241,7 @@ const products = [
     isNew: true,
     bestSeller: true,
     available: true,
-    dateAdded: "2026-08-10"
+    dateAdded: "2026-08-20"
   },
 
   {
@@ -261,7 +261,7 @@ const products = [
     isNew: true,
     bestSeller: true,
     available: true,
-    dateAdded: "2026-08-10"
+    dateAdded: "2026-08-20"
   },
 
   {
@@ -281,7 +281,7 @@ const products = [
     isNew: true,
     bestSeller: true,
     available: true,
-    dateAdded: "2026-08-10"
+    dateAdded: "2026-08-20"
   },
 
   {
@@ -301,7 +301,7 @@ const products = [
     isNew: true,
     bestSeller: true,
     available: true,
-    dateAdded: "2026-08-10"
+    dateAdded: "2026-08-20"
   },
 
   {
@@ -321,7 +321,7 @@ const products = [
     isNew: true,
     bestSeller: true,
     available: true,
-    dateAdded: "2026-08-10"
+    dateAdded: "2026-08-20"
   }
 ];
 
