@@ -13,9 +13,9 @@
 <main class="review-page"><div class="container review-shell">
   <div class="review-brand"><a href="index.html"><img src="assets/logo/logo2 (1).png" alt="She Trend"></a></div>
   <section class="review-panel">
-    <div class="text-center mb-4"><p class="eyebrow">YOUR EXPERIENCE</p><h1>شاركينا تجربتك 🤎</h1><p class="lead mb-0">رأيك يهمنا، وساعدينا نعرف كيف كانت تجربتك مع شي ترند.</p></div>
+    <div class="text-center mb-4"><p class="eyebrow">YOUR EXPERIENCE</p><h1>شاركينا تجربتك 🤎</h1><p class="lead mb-0">رأيك بيهمنا وبيساعدنا نتطور اكثر</p></div>
     <div id="configAlert" class="alert alert-warning d-none">صفحة التقييم تعمل حاليًا بالوضع التجريبي. لربطها فعليًا مع الموقع، ضعي بيانات Supabase في <code>js/reviews-config.js</code>.</div>
-    <div id="successAlert" class="alert alert-success d-none"><strong>شكرًا لكِ 🤎</strong><br>وصل تقييمك بنجاح، وسيظهر على الموقع بعد مراجعته واعتماده.</div>
+    <div id="successAlert" class="alert alert-success d-none"><strong>شكرًا لكِ 🤎</strong><br>وصل تقييمك بنجاح.</div>
     <div id="errorAlert" class="alert alert-danger d-none"></div>
     <form id="reviewForm" class="review-form" novalidate>
       <div class="row g-3">
@@ -28,7 +28,7 @@
           <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="نجمتان"><i class="bi bi-star-fill"></i></label>
           <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="نجمة واحدة"><i class="bi bi-star-fill"></i></label>
         </div></div>
-        <div class="col-12"><label class="form-label" for="reviewText">اكتبي تجربتك *</label><textarea id="reviewText" class="form-control" rows="5" maxlength="1000" required placeholder="وش أكثر شيء عجبك في تجربتك؟"></textarea><div class="review-note mt-2">من 5 إلى 1000 حرف.</div></div>
+        <div class="col-12"><label class="form-label" for="reviewText">اكتبي تجربتك *</label><textarea id="reviewText" class="form-control" rows="5" maxlength="1000" required placeholder=" احكي رأيك؟!"></textarea><div class="review-note mt-2">من 5 إلى 1000 حرف.</div></div>
         <div class="col-12"><label class="form-label" for="avatar">صورتك (اختياري)</label><input id="avatar" type="file" class="form-control" accept="image/*"><div class="review-note mt-2">يفضل صورة مربعة. سيتم تصغيرها تلقائيًا قبل الإرسال.</div><img id="avatarPreview" class="avatar-preview mt-3" alt="معاينة الصورة"></div>
         <div class="col-12"><button class="btn btn-premium w-100" id="submitBtn" type="submit"><i class="bi bi-send"></i> إرسال التقييم</button></div>
       </div>
