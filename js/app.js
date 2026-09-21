@@ -1370,43 +1370,24 @@ function bindFilterEvents(
 ========================================================= */
 
 function renderNewArrivals() {
-  const list =
-    [...products]
-      .filter(
-        product =>
-          product.isNew
-      )
-      .concat(
-        [...products].sort(
-          (a, b) =>
-            new Date(
-              b.dateAdded
-            ) -
-            new Date(
-              a.dateAdded
-            )
-        )
-      );
-
-  const unique =
-    Array.from(
-      new Map(
-        list.map(
-          product => [
-            product.id,
-            product
-          ]
-        )
-      ).values()
-    ).slice(0, 4);
+  const newProducts = [...products]
+    .filter(
+      product =>
+        product.isNew === true &&
+        product.available === true
+    )
+    .sort(
+      (a, b) =>
+        new Date(b.dateAdded) -
+        new Date(a.dateAdded)
+    );
 
   renderGrid(
-    document.getElementById(
-      "newArrivalsGrid"
-    ),
-    unique
+    document.getElementById("newArrivalsGrid"),
+    newProducts
   );
 }
+
 
 
 function renderTrending() {
