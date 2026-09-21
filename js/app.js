@@ -118,7 +118,7 @@ const products = [
     description: "عباية بقصة أنيقة وانسيابية مناسبة للإطلالات اليومية.",
     fabricType: "الكريب السعودي",
     styleType: ["صيفي", "كلوش عادي", "نقشة عالكم والشالة"],
-    isNew: true,
+    isNew: false,
     bestSeller: true,
     available: false,
     dateAdded: "2026-08-10"
@@ -138,7 +138,7 @@ const products = [
     description: "عباية بقصة أنيقة وانسيابية مناسبة للإطلالات اليومية.",
     fabricType: "باردة وخفيفة عملية لا بتخايل ولا بتكرمش ولا تشمر",
     styleType: ["صيفي", "كلوش عادي", "ملون"],
-    isNew: true,
+    isNew: false,
     bestSeller: true,
     available: false,
     dateAdded: "2026-08-10"
@@ -158,7 +158,7 @@ const products = [
     description: "عباية بقصة أنيقة وانسيابية مناسبة للإطلالات اليومية.",
     fabricType: "الكريب السعودي",
     styleType: ["صيفي", "ضبل كلوش", "نقشة على الكُم الإيد"],
-    isNew: true,
+    isNew: false,
     bestSeller: true,
     available: false,
     dateAdded: "2026-08-10"
@@ -178,7 +178,7 @@ const products = [
     description: "عباية بقصة أنيقة وانسيابية مناسبة للإطلالات اليومية.",
     fabricType: "الكريب السعودي",
     styleType: ["صيفي", "ضبل كلوش", "نقشة على الكُم الإيد"],
-    isNew: true,
+    isNew: false,
     bestSeller: true,
     available: false,
     dateAdded: "2026-08-10"
@@ -198,7 +198,7 @@ const products = [
     description: "عباية بقصة أنيقة وانسيابية مناسبة للإطلالات اليومية.",
     fabricType: "الكريب السعودي",
     styleType: ["صيفي", "ضبل كلوش", "نقشة على الكُم والضهر"],
-    isNew: true,
+    isNew: false,
     bestSeller: true,
     available: false,
     dateAdded: "2026-08-10"
@@ -218,7 +218,7 @@ const products = [
     description: "عباية بقصة أنيقة وانسيابية مناسبة للإطلالات اليومية.",
     fabricType: "حرير ياباني (سعودي)",
     styleType: ["صيفي", "ضبل كلوش", "سادة"],
-    isNew: true,
+    isNew: false,
     bestSeller: true,
     available: false,
     dateAdded: "2026-08-10"
